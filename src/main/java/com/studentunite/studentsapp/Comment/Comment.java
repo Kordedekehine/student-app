@@ -34,6 +34,8 @@ public class Comment {
     @ToString.Exclude
     private Post post;
 
+    private Integer likeCount = 0;
+
     private Instant createdDate;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

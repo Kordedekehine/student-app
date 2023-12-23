@@ -81,7 +81,9 @@ public class AppUserService {
         if (userEmail.isEmpty()){
             throw new RuntimeException("User does not exist");
         }
+        log.info(userEmail.toString());
         return userEmail;
+
     }
 
     private AppUserResponse mapAppUserToResponse(AppUser user, ProfileResponse profileResponse) {
@@ -118,6 +120,7 @@ public class AppUserService {
 
         profileResponse = restTemplate.getForObject
                 ("http://localhost:8080/api/profile/user/{username}",ProfileResponse.class,username);
+
 
         return mapAppUserToResponse(user,profileResponse);
     }

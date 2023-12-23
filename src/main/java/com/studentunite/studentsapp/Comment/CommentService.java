@@ -112,6 +112,7 @@ public class CommentService {
         return comments.stream().map(this::mapCommentToResponse).collect(toList());
     }
 
+
     @Transactional(readOnly = true)
     public List<CommentResponse> getCommentsByPost(Long postId) {
 

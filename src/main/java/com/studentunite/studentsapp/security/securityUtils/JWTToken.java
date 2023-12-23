@@ -5,6 +5,7 @@ public class JWTToken {
     private TokenType tokenType = TokenType.BEARER_TOKEN;
 
 
+
     public JWTToken(String loginToken) {
         accessToken = loginToken;
     }

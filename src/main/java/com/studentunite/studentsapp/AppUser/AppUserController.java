@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import static org.springframework.http.ResponseEntity.status;
 
 @RestController
-@RequestMapping("api/user")
+@RequestMapping("/api")
 public class AppUserController {
     private final AppUserService appUserService;
 
@@ -19,7 +19,7 @@ public class AppUserController {
     }
 
     // read
-    @GetMapping("/user/{username}")
+    @GetMapping("/userFullName/{username}")
     public ResponseEntity<AppUserResponse> getUserFullDetails(@PathVariable String username) {
         return status(HttpStatus.OK).body(appUserService.getUserFullDetailsByUsername(username));
     }
@@ -30,14 +30,15 @@ public class AppUserController {
     }
 
     // update
-    @PutMapping("/{username}")
+    @PutMapping("/updatePassword/{username}")
     public ResponseEntity<String> updatePassword(@PathVariable String username, @RequestBody String text,@RequestParam String authorization) {
         return appUserService.updateUserPassword(username, text,authorization);
     }
 
     // delete
-    @DeleteMapping("/{username}")
+    @DeleteMapping("/deleteUser/{username}")
     public ResponseEntity<String> deleteUser(@PathVariable String username,@RequestParam String authorization) {
         return appUserService.deleteUser(username,authorization);
     }
+
 }

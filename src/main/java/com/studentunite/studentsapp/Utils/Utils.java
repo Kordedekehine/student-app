@@ -3,7 +3,7 @@ package com.studentunite.studentsapp.Utils;
 import java.time.Instant;
 
 public class Utils {
-    // Courtesy of https://stackoverflow.com/a/3177838/12633129
+
     public static String timeAgo(Instant then) {
         long secondsSinceThen = Instant.now().minusMillis(then.toEpochMilli()).toEpochMilli() / 1000;
         long interval = secondsSinceThen / 31536000;

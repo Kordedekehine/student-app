@@ -27,8 +27,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/validate/**").permitAll()
+                .antMatchers("/api/**").permitAll()
                 .antMatchers("/registration/**").permitAll()
-                .antMatchers("/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/security", "/swagger-ui/**").permitAll()
+                .antMatchers("/swagger-ui/**", " /v3/api-docs/**").permitAll()
 //                .antMatchers(HttpMethod.GET, "/api/**").permitAll()    // we want to allow retrieval of posts, comments, etc. even if not logged in
 //                .antMatchers(HttpMethod.POST, "/api/**").hasAnyAuthority(String.valueOf(AppUserRole.USER), (String.valueOf(AppUserRole.ADMIN)))
 //                .antMatchers(HttpMethod.PUT, "/api/**").hasAnyAuthority(String.valueOf(AppUserRole.USER), (String.valueOf(AppUserRole.ADMIN)))

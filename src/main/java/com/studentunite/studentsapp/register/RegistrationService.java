@@ -82,7 +82,7 @@ public class RegistrationService {
 
         log.info(token);
 
-        emailService.sendRegistrationSuccessfulEmail(appUser,token); //not ready to test
+      //  emailService.sendRegistrationSuccessfulEmail(appUser,token); //not ready to test
 
         return new ResponseEntity<>("Registration Successful. Activation email to be sent shortly.", HttpStatus.ACCEPTED);
 
@@ -107,7 +107,7 @@ public class RegistrationService {
 
           appUserRepository.save(appUser);
       }
-      emailService.sendVerificationMessage(appUser);
+     // emailService.sendVerificationMessage(appUser);
 
       return new ResponseEntity<>("Account Activated!",HttpStatus.ACCEPTED);
     }

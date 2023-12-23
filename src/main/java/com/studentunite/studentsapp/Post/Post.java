@@ -35,6 +35,8 @@ public class Post {
 
     private Integer voteCount = 0;
 
+    private Integer likeCount = 0;
+
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "app_user_id")
     @ToString.Exclude

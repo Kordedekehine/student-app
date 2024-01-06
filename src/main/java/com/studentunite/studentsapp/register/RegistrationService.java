@@ -3,7 +3,6 @@ package com.studentunite.studentsapp.register;
 import com.studentunite.studentsapp.AppUser.AppUser;
 import com.studentunite.studentsapp.AppUser.AppUserRepository;
 import com.studentunite.studentsapp.AppUser.AppUserRole;
-import com.studentunite.studentsapp.emailService.EmailServiceImpl;
 import com.studentunite.studentsapp.security.securityServices.TokenProviderService;
 import com.studentunite.studentsapp.security.securityServices.UserPrincipalService;
 import lombok.extern.slf4j.Slf4j;
@@ -32,17 +31,15 @@ public class RegistrationService {
 
     private final ModelMapper modelMapper;
 
-    private final EmailServiceImpl emailService;
 
     private final TokenProviderService tokenProviderService;
 
-    public RegistrationService(UserPrincipalService userPrincipalService, AppUserRepository appUserRepository, PasswordEncoder passwordEncoder, EmailValidator emailValidator, ModelMapper modelMapper, EmailServiceImpl emailService, TokenProviderService tokenProviderService) {
+    public RegistrationService(UserPrincipalService userPrincipalService, AppUserRepository appUserRepository, PasswordEncoder passwordEncoder, EmailValidator emailValidator, ModelMapper modelMapper, TokenProviderService tokenProviderService) {
         this.userPrincipalService = userPrincipalService;
         this.appUserRepository = appUserRepository;
         this.passwordEncoder = passwordEncoder;
         this.emailValidator = emailValidator;
         this.modelMapper = modelMapper;
-        this.emailService = emailService;
         this.tokenProviderService = tokenProviderService;
     }
 
